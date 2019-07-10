@@ -3,15 +3,18 @@ all: quntoken/
 
 
 quntoken/: quntoken.tar.gz
-	@echo 'Unpack quntoken.'
+	@echo 'Unpacking quntoken...'
 	@tar -xzf $^
 	@rm -f $^
+	@mv $@/lib/* $@
+	@rm -r $@/bin $@/lib
+	@touch $@/__init__.py
 	@echo -e 'Done.\n'
 
 
 quntoken.tar.gz:
-	@echo 'Download quntoken.'
-	@wget -q https://github.com/dlt-rilmta/quntoken/releases/download/v2.2.0/quntoken_Linux_x86_64_v2.2.0.tar.gz -O $@
+	@echo 'Download quntoken...'
+	@wget -q https://github.com/DavidNemeskey/quntoken/releases/download/v1.2.0/quntoken_Linux_x86_64_v1.2.0.tar.gz -O $@
 	@echo -e 'Done.\n'
 
 

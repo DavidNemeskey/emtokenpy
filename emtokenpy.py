@@ -4,7 +4,11 @@
 """Python wrapper for quntoken.
 """
 
-from .quntoken.quntoken import tokenize
+import os.path as op
+import sys
+
+## Load the interface class from the downloaded quntoken directory
+from .quntoken.quntoken import QunToken
 
 
 class EmTokenPy:
@@ -21,12 +25,10 @@ class EmTokenPy:
 
         self.source_fields = source_fields
         self.target_fields = target_fields
+        self.qt = QunToken('vert', 'token', False)
 
-    @staticmethod
-    def process_sentence(sen, _=None):
-        cmd = ['preproc', 'snt', 'sntcorr', 'sntcorr', 'token', 'convtsv']
-        res = tokenize(cmd, sen)
-        return res
+    def process_sentence(self, sen, _=None):
+        return self.qt.tokenize(sen)
 
     @staticmethod
     def prepare_fields(field_names):
