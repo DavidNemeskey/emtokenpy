@@ -27,8 +27,9 @@ class EmTokenPy:
         self.target_fields = target_fields
         self.qt = QunToken('vert', 'token', False)
 
-    def process_sentence(self, sen, _=None):
-        return self.qt.tokenize(sen)
+    def process_sentence(self, sentences, _=None):
+        for sen in sentences:
+            yield self.qt.tokenize(sen)
 
     @staticmethod
     def prepare_fields(field_names):
