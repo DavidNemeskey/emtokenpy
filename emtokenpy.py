@@ -4,6 +4,7 @@
 """Python wrapper for quntoken.
 """
 
+from io import StringIO
 import os.path as op
 import sys
 
@@ -29,7 +30,8 @@ class EmTokenPy:
 
     def process_sentence(self, sentences, _=None):
         for sen in sentences:
-            yield self.qt.tokenize(sen)
+            for token in StringIO(self.qt.tokenize(sen)):
+                yield token
 
     @staticmethod
     def prepare_fields(field_names):
