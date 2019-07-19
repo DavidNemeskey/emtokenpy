@@ -14,7 +14,7 @@ quntoken/: quntoken.tar.gz
 
 quntoken.tar.gz:
 	@echo 'Download quntoken...'
-	@wget -q https://github.com/DavidNemeskey/quntoken/releases/download/v1.3.1/quntoken_Linux_x86_64_v1.3.1.tar.gz -O $@
+	@wget -q https://github.com/DavidNemeskey/quntoken/releases/download/v1.3.2/quntoken_Linux_x86_64_v1.3.2.tar.gz -O $@
 	@echo -e 'Done.\n'
 
 
