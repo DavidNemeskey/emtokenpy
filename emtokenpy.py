@@ -26,7 +26,7 @@ class EmTokenPy:
 
         self.source_fields = source_fields
         self.target_fields = target_fields
-        self.qt = QunToken('vert', 'token', False)
+        self.qt = QunToken('tsv', 'token', False)
 
     def process_sentence(self, sentences, _=None):
         for sen in sentences:
